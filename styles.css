@@ -635,6 +635,36 @@ h1 em { font-style: italic; color: var(--mint); }
   .steps-aside { max-width: 470px; }
 }
 
+/* ── Book a call (embedded calendar) ──────────── */
+
+.book { padding: clamp(80px, 12vh, 140px) 0; }
+
+.book-head { max-width: 640px; margin: 0 auto 2.6rem; text-align: center; }
+
+.book-sub { color: var(--ink-muted); font-size: 1.05rem; }
+
+.book-widget {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--hairline-dark);
+  border-radius: 18px;
+  padding: clamp(8px, 1.5vw, 18px);
+  box-shadow: 0 24px 55px rgba(16, 26, 35, 0.1);
+  overflow: hidden;
+}
+
+.book-widget iframe { min-height: 700px; border-radius: 12px; }
+
+.book-fallback {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-subtle);
+}
+
+.book-fallback a { color: var(--sage-deep); font-weight: 600; }
+
 /* ── Footer CTA ───────────────────────────────── */
 
 .footer-cta {
