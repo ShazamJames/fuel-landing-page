@@ -3,9 +3,11 @@
 
 // ── Sticky header shadow ─────────────────────────
 const header = document.getElementById('siteHeader');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 10);
-}, { passive: true });
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
 
 // ── Staggered reveal on scroll ───────────────────
 // Reveals arriving in the same frame cascade 90ms apart.
@@ -67,8 +69,10 @@ if (!reduceMotion) {
   document.querySelectorAll('[data-count]').forEach((el) => countObserver.observe(el));
 }
 
-// ── Benefits carousel ────────────────────────────
+// ── Benefits carousel (homepage only) ────────────
 const track = document.getElementById('carouselTrack');
+if (track) initCarousel();
+function initCarousel() {
 const slides = Array.from(track.children);
 const dotsWrap = document.getElementById('carouselDots');
 let current = 0;
@@ -112,23 +116,19 @@ document.getElementById('benefitsCarousel').addEventListener('keydown', (e) => {
 });
 
 goTo(0);
+}
 
-// ── Join form (placeholder — wire to your ESP later) ──
-document.getElementById('joinForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('joinEmail');
-  if (!email.checkValidity()) {
-    email.reportValidity();
-    return;
-  }
-  e.target.hidden = true;
-  document.getElementById('formSuccess').hidden = false;
-});
-
-// ── Placeholder booking links ────────────────────
-document.querySelectorAll('[data-placeholder="booking"]').forEach((link) => {
-  link.addEventListener('click', (e) => {
+// ── Join form (front-end only — wire to GHL later) ──
+const joinForm = document.getElementById('joinForm');
+if (joinForm) {
+  joinForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Placeholder: connect this button to your booking link (e.g. Calendly).');
+    const form = e.target;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    form.hidden = true;
+    document.getElementById('formSuccess').hidden = false;
   });
-});
+}

@@ -1,0 +1,137 @@
+/* ═══════════════════════════════════════════════════════════
+   FUEL — Custom CSS for the GHL booking page
+   (go.fuelinvestmentgroup.com/evelyn)
+
+   HOW TO USE
+   1. In GHL: Sites → Funnels → the Evelyn booking funnel →
+      open the page in the builder → Settings (gear) → Custom CSS →
+      paste this whole file → Save & Publish.
+   2. Also set, under Calendar → Calendar Settings → Appearance:
+        Primary color:    #1E2C3A   (deep blue — selected date, buttons)
+        Background color: #FBF7F0   (warm paper)
+      The widget reads those from settings; CSS below covers the rest.
+
+   Palette:  Deep Blue #1E2C3A · Soft Mint #A8E8DD ·
+             Warm Cream #F5EFE6 · Muted Sage #A6C8B6
+   Type:     Fraunces (headings) · Public Sans (body)
+═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --fuel-deep-blue: #1E2C3A;
+  --fuel-deep-blue-darkest: #101A23;
+  --fuel-mint: #A8E8DD;
+  --fuel-cream: #F5EFE6;
+  --fuel-paper: #FBF7F0;
+  --fuel-sage: #A6C8B6;
+  --fuel-sage-deep: #5E8570;
+  --fuel-ink: #26333F;
+  --fuel-hairline: rgba(38, 51, 63, 0.14);
+}
+
+/* ── Base type ─────────────────────────────────── */
+
+body, .hl-app, .c-paragraph, .c-paragraph * , .c-sub-heading, .c-sub-heading * {
+  font-family: "Public Sans", -apple-system, sans-serif !important;
+}
+
+.c-heading, .c-heading *, h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+}
+
+/* ── Page sections ─────────────────────────────── */
+
+/* Header bar + hero section: deep blue, kill the beach photo */
+.section-2AeWdJRqQ1, .bg-section-2AeWdJRqQ1 {
+  background-color: var(--fuel-deep-blue) !important;
+  background-image:
+    radial-gradient(ellipse 90% 70% at 85% -10%, rgba(168, 232, 221, 0.08), transparent 60%) !important;
+}
+
+/* All remaining sections: warm paper instead of white/grey */
+.c-section {
+  background-color: var(--fuel-paper) !important;
+}
+
+/* First section keeps the dark treatment */
+.section-2AeWdJRqQ1 { background-color: var(--fuel-deep-blue) !important; }
+
+/* ── Headings: replace orange with cream/ink ───── */
+
+.section-2AeWdJRqQ1 .c-heading *, .section-2AeWdJRqQ1 h1, .section-2AeWdJRqQ1 h2 {
+  color: var(--fuel-cream) !important;
+}
+
+.c-section:not(.section-2AeWdJRqQ1) .c-heading *,
+.c-section:not(.section-2AeWdJRqQ1) h1,
+.c-section:not(.section-2AeWdJRqQ1) h2 {
+  color: var(--fuel-ink) !important;
+}
+
+/* Dark overlay card behind the hero copy */
+.section-2AeWdJRqQ1 .c-column {
+  background-color: transparent !important;
+}
+
+.section-2AeWdJRqQ1 .c-paragraph * {
+  color: rgba(245, 239, 230, 0.85) !important;
+}
+
+/* Body copy on light sections */
+.c-section:not(.section-2AeWdJRqQ1) .c-paragraph *,
+.c-section:not(.section-2AeWdJRqQ1) .c-sub-heading * {
+  color: rgba(38, 51, 63, 0.8) !important;
+}
+
+/* ── Calendar widget ───────────────────────────── */
+
+/* Card */
+.c-calendar, .c-calendar .calendar-wrapper, .c-calendar [class*="card"] {
+  background: #FFFFFF !important;
+  border: 1px solid var(--fuel-hairline) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 55px rgba(16, 26, 35, 0.12) !important;
+}
+
+/* Time-slot buttons: orange → deep blue outline, mint on hover */
+.c-calendar button,
+.c-calendar [class*="slot"],
+.c-calendar [class*="time"] button {
+  font-family: "Public Sans", sans-serif !important;
+  border-color: var(--fuel-deep-blue) !important;
+  color: var(--fuel-deep-blue) !important;
+  border-radius: 999px !important;
+  transition: background 180ms ease, color 180ms ease !important;
+}
+
+.c-calendar button:hover,
+.c-calendar [class*="slot"]:hover {
+  background: var(--fuel-mint) !important;
+  border-color: var(--fuel-mint) !important;
+  color: var(--fuel-deep-blue-darkest) !important;
+}
+
+/* Selected day / confirm buttons (GHL paints these with the
+   calendar primary color — backstop in case settings lag) */
+.c-calendar [class*="selected"],
+.c-calendar [class*="active"],
+.c-calendar .btn-primary {
+  background-color: var(--fuel-deep-blue) !important;
+  border-color: var(--fuel-deep-blue) !important;
+  color: var(--fuel-cream) !important;
+}
+
+/* ── Footer section ────────────────────────────── */
+
+.c-section:last-of-type {
+  background-color: var(--fuel-deep-blue-darkest) !important;
+}
+
+.c-section:last-of-type .c-paragraph *,
+.c-section:last-of-type .c-heading * {
+  color: rgba(245, 239, 230, 0.75) !important;
+}
