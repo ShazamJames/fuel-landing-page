@@ -635,6 +635,55 @@ h1 em { font-style: italic; color: var(--mint); }
   .steps-aside { max-width: 470px; }
 }
 
+/* ── Book page ────────────────────────────────── */
+
+.book-hero {
+  padding: clamp(64px, 9vh, 110px) 0 clamp(56px, 8vh, 90px);
+  background:
+    radial-gradient(ellipse 90% 70% at 85% -10%, rgba(168, 232, 221, 0.08), transparent 60%),
+    var(--deep-blue);
+}
+
+.book-hero h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin-bottom: 0.4rem; }
+.book-hero h1 em { font-style: italic; color: var(--mint); }
+.book-hero .lede { margin-top: 1.2rem; }
+
+.book-bio {
+  padding: clamp(80px, 12vh, 140px) 0;
+  background: var(--deep-blue-darker);
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.2fr);
+  gap: clamp(44px, 6vw, 90px);
+  align-items: center;
+}
+
+.bio-copy p { margin-bottom: 1.15rem; color: var(--cream-muted); }
+
+.bio-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage) !important;
+  margin-bottom: 1.4rem !important;
+}
+
+.bio-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--cream) !important;
+  border-left: 2px solid var(--mint);
+  padding-left: 18px;
+}
+
+@media (max-width: 880px) {
+  .bio-grid { grid-template-columns: 1fr; }
+  .bio-grid .portrait { max-width: 380px; }
+}
+
 /* ── Book a call (embedded calendar) ──────────── */
 
 .book { padding: clamp(80px, 12vh, 140px) 0; }
@@ -664,6 +713,94 @@ h1 em { font-style: italic; color: var(--mint); }
 }
 
 .book-fallback a { color: var(--sage-deep); font-weight: 600; }
+
+/* ── Free guide ───────────────────────────────── */
+
+.guide { padding: clamp(80px, 12vh, 140px) 0; }
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.15fr);
+  gap: clamp(44px, 6vw, 90px);
+  align-items: center;
+}
+
+.guide-visual { display: flex; justify-content: center; }
+
+.guide-cover {
+  width: min(290px, 80%);
+  aspect-ratio: 3 / 4.1;
+  background:
+    radial-gradient(ellipse 120% 70% at 80% -10%, rgba(168, 232, 221, 0.16), transparent 60%),
+    var(--deep-blue);
+  border-radius: 8px 14px 14px 8px;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    -6px 0 0 -2px var(--sage),
+    0 30px 60px rgba(16, 26, 35, 0.3);
+  transform: rotate(-3deg);
+  transition: transform 400ms var(--ease-out);
+}
+
+.guide-cover:hover { transform: rotate(-1deg) translateY(-4px); }
+
+.guide-cover-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+
+.guide-cover-title {
+  margin-top: auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.guide-cover-rule {
+  height: 1px;
+  background: var(--hairline);
+  margin: 18px 0 12px;
+}
+
+.guide-cover-author {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream-subtle);
+}
+
+.guide-sub { color: var(--ink-muted); margin-bottom: 1.4rem; }
+
+.guide-points {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 2.2rem;
+}
+
+.guide-points li {
+  display: flex;
+  gap: 0.7em;
+  align-items: baseline;
+  color: var(--ink-muted);
+}
+
+.guide-points li::before {
+  content: "✓";
+  color: var(--sage-deep);
+  font-weight: 700;
+}
+
+@media (max-width: 880px) {
+  .guide-grid { grid-template-columns: 1fr; }
+  .guide-visual { order: -1; }
+}
 
 /* ── Footer CTA ───────────────────────────────── */
 
