@@ -1121,6 +1121,15 @@ h1 em { font-style: italic; color: var(--mint); }
 
 .join-page .join-form { margin: 0; }
 
+.join-widget iframe { min-height: 1050px; border-radius: 14px; }
+
+.join-widget .form-note {
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--cream-subtle);
+}
+
 @media (max-width: 880px) {
   .join-grid { grid-template-columns: 1fr; }
 }
